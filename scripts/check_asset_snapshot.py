@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the imported asset skill against the exact pinned upstream Git blobs."""
+"""Check unchanged imported asset files against the pinned upstream Git blobs."""
 from __future__ import annotations
 
 import hashlib
@@ -32,4 +32,5 @@ if __name__ == "__main__":
         for issue in issues:
             print("FAIL:", issue)
         sys.exit(1)
-    print("Asset source matches pinned v3.2.0 (13 core/reference/script/test blobs).")
+    manifest = json.loads((ROOT / "upstream/asset-v3.2.0.json").read_text(encoding="utf-8"))
+    print(f"Asset source matches pinned {manifest['tag']} ({len(manifest['files'])} unchanged blobs; local overrides documented).")
