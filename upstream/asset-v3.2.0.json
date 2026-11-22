@@ -1,10 +1,11 @@
 {
   "repository": "SimonMedy/roblox-asset-workflow",
   "tag": "v3.2.0",
-  "description": "Exact Git blob hashes for the unchanged upstream skill, references, audits and regression tests. The bundled validate_skill.py is a documented suite-specific adaptation: it does not require README_FR.md.",
+  "source_commit": "0d9f6de4164f8425e7829c389116753247a07af1",
+  "description": "Pinned asset sources from v3.2.0, plus SKILL.md synced to the post-release Blender MCP priority change at source_commit. The suite-specific validate_skill.py excludes README_FR.md.",
   "local_overrides": ["scripts/validate_skill.py", "README.md"],
   "files": {
-    "SKILL.md": "e4a9f3b8163464322dc1ce19eb4cdfbebdc7c971",
+    "SKILL.md": "3e0866f592821afaed6b06f07f6015a97b6b8200",
     "references/audio-sfx.md": "dda76b5cb300d81a1d2b118ded85e4acd212f1ef",
     "references/environments.md": "8a6c0e78f6891576a7e52a45f06ec1953e345267",
     "references/other-assets.md": "8156f5ed24f2aa98635fdb44eda9e52d3b3fce6f",

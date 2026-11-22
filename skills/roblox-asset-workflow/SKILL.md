@@ -24,7 +24,7 @@ compatibility: Requires an asset creation tool (Blender recommended). Blender MC
 ## Workflow
 
 1. Read references, brief and existing scene; identify locked features, the intended camera, customisable regions and target platform. Make sensible assumptions when unspecified.
-2. Build silhouette/large forms first, then connections, details, materials, UVs and attachment points. Use Blender MCP or the available modeling tools; a skill does not install tools.
+2. Build silhouette/large forms first, then connections, details, materials, UVs and attachment points. Prefer Blender via Blender MCP for authored 3D when available; never substitute crude Studio primitives merely for convenience. Use primitives for blockouts, collision or simple functional geometry. If unavailable, report the limitation and use alternatives only if quality holds; a skill does not install tools.
 3. Check close-ups, side/front/rear/top, hidden angles and gameplay-scale renders. Iterate on real defects without redesigning approved work.
 4. Preserve the **HQ** editable master. Produce **GAME** Roblox-ready export. Add a **MOBILE** variant only when useful or requested, with stable component names, pivots and skin interfaces across variants.
 5. Validate `.glb`/`.gltf`/`.fbx` as appropriate: hierarchy, mesh budgets, transforms, UVs, normals, materials, texture references and retained swappable pieces. Reimport/test in Roblox Studio when available.
