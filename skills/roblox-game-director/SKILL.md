@@ -1,6 +1,6 @@
 ---
 name: roblox-game-director
-description: Plan, coordinate and quality-gate complete Roblox game features and playable vertical slices. Use when a request spans game design, assets, VFX, audio, Luau, multiplayer, UI, integration or end-to-end delivery.
+description: Plan, coordinate and quality-gate Roblox game features, playable vertical slices, cinematics, character/item animations, scripted cameras, MVP podiums, game design, VFX/audio, Luau, multiplayer, UI and end-to-end delivery.
 license: MIT
 compatibility: Requires other skills or tools for implementation and Roblox Studio access for actual runtime verification.
 ---
@@ -15,6 +15,7 @@ compatibility: Requires other skills or tools for implementation and Roblox Stud
 - Native particles, trails, boosts, flipbooks and audio cues: use `roblox-vfx-audio` when installed.
 - Luau, networking, physics, data or UI: inspect the real game code and use available appropriate tools/skills. **Do not claim a specialist exists if it is not installed.**
 - Load [production workflow](references/production-workflow.md) only for multi-domain or full-game coordination.
+- Load [cinematics and animation](references/cinematics-and-animation.md) only for character/item/environment animation, scripted cameras, intros, celebrations or podium scenes.
 
 ## Production contract
 

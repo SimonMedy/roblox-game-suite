@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 — 2026-11-22
+
+- Added lazy-loaded director reference for character, item and environment animation, game cameras, MVP podiums and cinematics.
+- Documented purposeful motion, delta-time-safe smoothing, coherent scene timelines, rig versus procedural animation and interruption-safe cleanup.
+- Added visual and integration `PASS/FAIL/UNVERIFIED` criteria; pacing and tools are guidance, not invented Roblox engine limits.
+- No new placeholder skill, no changes to existing assets, VFX/audio guidance, or Python audit tools.
+
 ## 0.1.0 — 2026-11-22
 
 - Established a standalone multi-skill Agent Skills suite with three independent skills: `roblox-game-director`, `roblox-asset-workflow` and `roblox-vfx-audio`.
