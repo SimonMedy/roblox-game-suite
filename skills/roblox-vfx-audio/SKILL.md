@@ -18,6 +18,6 @@ compatibility: Requires Roblox Studio access for in-engine validation. Blender a
 
 1. Identify camera, gameplay states, user controls, target devices, rarity identity and collision/competitive constraints.
 2. Define readable silhouette, timing and sound signature; build one hero effect before making a set. Reuse `roblox-asset-workflow` for involved 3D meshes/UVs where installed.
-3. Implement with Roblox-native emitters/geometry and authorized audio; connect effect timing to **actual** client/server state rather than inventing APIs.
+3. Prefer Roblox Studio via Studio MCP for native VFX implementation and verification; use Blender MCP for complex 3D effect meshes and suitable image tools for sprites/flipbooks. Combine tools as needed; never lower quality merely for convenience. If unavailable, report unverified steps. Implement with authorized audio and **actual** client/server state, not invented APIs.
 4. Inspect real motion in Studio if accessible: alpha edges, flipbook timing, occlusion, overbright Bloom and audibility, then multi-player/mobile performance. Add reduced effects without losing identity.
 5. Deliver sources, trigger/state map, attachment hierarchy, visual and audio evidence, measured costs if available, and `PASS/FAIL/UNVERIFIED` for tests. Never report unrun Studio/device checks as successful.
