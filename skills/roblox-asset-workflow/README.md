@@ -30,4 +30,4 @@ python scripts/audit_glb.py path/to/Vehicle_GAME.glb --strict --output reports/g
 
 These scripts cannot certify actual Roblox Studio import or runtime rendering. This module is copied for independent installation; keep future upstream fixes synchronized deliberately.
 
-See [README_FR](README_FR.md), [CHANGELOG](CHANGELOG.md) and [LICENSE](LICENSE).
+See [CHANGELOG](CHANGELOG.md) and [LICENSE](LICENSE).

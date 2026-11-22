@@ -48,7 +48,7 @@ def check() -> list[str]:
     for path_string in re.findall(r"\]\((references/[^)#]+)\)", content):
         if not (ROOT / path_string).is_file():
             errors.append(f"Broken reference: {path_string}")
-    for filename in ("README.md", "README_FR.md", "LICENSE", "CHANGELOG.md"):
+    for filename in ("README.md", "LICENSE", "CHANGELOG.md"):
         if not (ROOT / filename).is_file():
             errors.append(f"Missing required file: {filename}")
     for path in [*ROOT.rglob("*.md"), *ROOT.rglob("*.py")]:
