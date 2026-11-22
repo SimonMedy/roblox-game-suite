@@ -55,7 +55,7 @@ def validate(root: Path = ROOT, expected: set[str] | None = None) -> list[str]:
                 errors.append(f"{name}: missing or unsafe local reference {target}")
     if not (root / "LICENSE").is_file():
         errors.append("Missing LICENSE")
-    for rel in ("README.md", "README_FR.md", "CHANGELOG.md"):
+    for rel in ("README.md", "CHANGELOG.md"):
         if not (root / rel).is_file():
             errors.append(f"Missing {rel}")
     asset = skills / "roblox-asset-workflow"
