@@ -1,0 +1,20 @@
+{
+  "repository": "SimonMedy/roblox-asset-workflow",
+  "tag": "v3.2.0",
+  "description": "Exact Git blob hashes of the imported skill source, reference files, audit code and regression tests. Module README files are suite-specific.",
+  "files": {
+    "SKILL.md": "e4a9f3b8163464322dc1ce19eb4cdfbebdc7c971",
+    "references/audio-sfx.md": "dda76b5cb300d81a1d2b118ded85e4acd212f1ef",
+    "references/environments.md": "8a6c0e78f6891576a7e52a45f06ec1953e345267",
+    "references/other-assets.md": "8156f5ed24f2aa98635fdb44eda9e52d3b3fce6f",
+    "references/rarity-and-art-direction.md": "8c793bd5513a603d1a187f569d57aa0cf610add2",
+    "references/roblox-export.md": "9c0c6fbc70c9ba3702ae6c07b9be0552dd15e5aa",
+    "references/skins.md": "b6b9684957fa9f2ab980cfa77d9ce34bbe855c31",
+    "references/vehicles.md": "b550d0c592378afbfad2178549e19e0c8f44d3ad",
+    "references/vfx-roblox.md": "704562db3db66e9f26132c183cfd265c68bcd9ec",
+    "scripts/audit_blender.py": "85bf1c7e6125b4b9309e35a3e05e91fcf337a416",
+    "scripts/audit_glb.py": "c554f7b780db61f06abe1c444112778910629d25",
+    "scripts/validate_skill.py": "367bd28d8a8695b4944b582bc4a01eab78ceb0e9",
+    "tests/test_audit_glb.py": "37ce0ace0b8103af9c6a8981b08869807e71f8be"
+  }
+}
