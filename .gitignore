@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+Thumbs.db
+*.blend
+*.blend1
+*.fbx
+*.glb
+*.gltf
+*.obj
+*.psd
+*.png
+*.jpg
+*.zip
+asset-audit.json
+reports/

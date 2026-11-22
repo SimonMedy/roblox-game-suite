@@ -1,0 +1,42 @@
+name: Validate Game Suite
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  suite-and-asset-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate three Agent Skills
+        run: python scripts/validate_suite.py
+      - name: Verify imported asset source against pinned v3.2.0
+        run: python scripts/check_asset_snapshot.py
+      - name: Validate imported asset skill
+        run: python skills/roblox-asset-workflow/scripts/validate_skill.py
+      - name: Compile bundled Python
+        run: python -m compileall -q scripts tests skills
+      - name: Suite regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Imported asset audit regression tests
+        working-directory: skills/roblox-asset-workflow
+        run: python -m unittest discover -s tests -v
+  skills-cli-discovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Discover skills using the official installer (read-only)
+        run: |
+          npx --yes skills add . --list | tee skills-discovery.txt
+          grep -F roblox-game-director skills-discovery.txt
+          grep -F roblox-asset-workflow skills-discovery.txt
+          grep -F roblox-vfx-audio skills-discovery.txt
