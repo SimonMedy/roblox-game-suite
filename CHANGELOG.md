@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — 2026-11-23
+
+- Added an **experimental**, lazy-loaded Blender/Unreal-to-Roblox flipbook baking reference under `roblox-vfx-audio` (one hero-effect trial; real Studio verification still required).
+- Documented transparent RGBA/alpha pitfalls, deterministic frames and loops, 4×4 vs 8×8 resolution, Roblox playback limitations, mobile/performance checks and native 3D fallbacks.
+- Kept Niagara optional, Blender preferred when accessible, and the existing native VFX, asset and director rules unchanged; no untested results claimed.
+
 ## 0.1.1 — 2026-11-22
 
 - Added lazy-loaded director reference for character, item and environment animation, game cameras, MVP podiums and cinematics.

@@ -12,6 +12,7 @@ compatibility: Requires Roblox Studio access for in-engine validation. Blender a
 ## Load relevant references
 
 - Particles, Beam/Trail, flipbook sprites, emission, performance: [references/vfx-roblox.md](references/vfx-roblox.md)
+- 3D-to-flipbook baking (experimental; only when useful): [references/flipbook-baking-pipeline.md](references/flipbook-baking-pipeline.md)
 - SFX, music, cue layering and mix: [references/audio-sfx.md](references/audio-sfx.md)
 
 ## Delivery loop
