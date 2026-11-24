@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3 — 2026-11-24
+
+- Added lessons reported from a real Blender Voidstorm 4×4 flipbook prototype: controlled Transparent/Emission shader mixing, premultiplied-alpha downsampling and noise-range/erosion checks; kept these as conditional guidance, not universal rules.
+- Clarified that `ParticleEmitter` **OneShot ignores `FlipbookFramerate`** and plays over `Lifetime`; real Studio playback, multiplayer and mobile performance remain `UNVERIFIED`.
+- Marked Blender-side prototype as externally reported rather than independently reproduced. No changes to other skills or audit code.
+
 ## 0.1.2 — 2026-11-23
 
 - Added an **experimental**, lazy-loaded Blender/Unreal-to-Roblox flipbook baking reference under `roblox-vfx-audio` (one hero-effect trial; real Studio verification still required).
