@@ -34,10 +34,15 @@ These are **design starting points**, not required values or Roblox performance 
 - For a baked flipbook preview, animate a GUI `ImageLabel` using `ImageRectSize` (one atlas cell) and `ImageRectOffset` (frame coordinates), advancing by elapsed `dt` and the intended one-shot/loop timing. Test the atlas after asset upload; do not use a `ParticleEmitter` as the only Garage preview.
 - 3D items may remain in the `ViewportFrame`; use an appropriate UI or simplified geometry fallback for their missing VFX. Preview and in-match effects are **different render paths** and must both be reviewed. Verify GUI aspect ratios, visibility, timing, cleanup and texture IDs.
 
+## Studio delivery and lighting QA
+
+- **Calibrate in context:** inspect dark/bright arenas and the actual Bloom, `Brightness`, colors and match camera. For a sprite mixing dark cores and bright accents, excessive `LightEmission` can wash out contrast. Tune against visual evidence; SideRush reportedly improved at `0.45` versus `0.72`, **not** a universal target or Roblox limit.
+- **Asset availability:** for Studio MCP/Open Cloud uploads, check required permissions and explicitly approved **narrowly scoped** upload directories. Approval/asset IDs do not always mean immediate CDN availability; handle temporary processing errors with bounded retries, then confirm actual client loading. Never assume a fixed propagation delay or bypass permission checks.
+
 ## Real-game performance
 
 - Profile **representative concurrent equipped players**, e.g. 6–8 vehicles if that matches the game's expected player count (example, **not a Roblox limit**).
-- Evaluate frame times, transparent overdraw, draw calls, particle lifetime/rate, stacked transparencies and texture memory on target clients. Compare against a baseline in Studio and on mobile where possible.
+- Evaluate frame times, transparent overdraw, draw calls, particle lifetime/rate, stacked transparencies and texture memory on target clients. Compare against a baseline in Studio and on mobile where possible. Report sampling windows and scene/device settings; an FPS cap can conceal rendering costs, so compare frame-time tails and sustained load too.
 - Define a MOBILE variant with fewer overlapping transparent layers/particles while preserving signature silhouette, color and timing; avoid unnecessary fast flashing.
 - Visual QA: inspect Idle/Move/Boost/Impact, front/back/side, camera occlusion, motion and simultaneous effects. Mark unrun Studio/device tests explicitly.
 

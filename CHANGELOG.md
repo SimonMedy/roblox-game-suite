@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.6 — 2026-11-24
+
+- Incorporated SideRush Voidstorm v2 Studio-PC feedback into native VFX QA: calibrate `LightEmission`/Bloom across bright and dark arenas; `0.45` is project evidence, never a universal setting.
+- Added Studio MCP/Open Cloud upload-directory permission and eventual asset availability checks, without promising a fixed CDN delay.
+- Clarified performance reports: compare frame times and tails under representative load; identical capped FPS does not prove zero overhead. Mobile/online multiplayer remain unverified in the reported SideRush test.
+- Kept Garage/ViewportFrame fallback, both VFX references, compact skill routing and other specialists unchanged.
+
 ## 0.1.5 — 2026-11-24
 
 - Added an in-project SideRush lesson: Garage/shop `ViewportFrame` previews must not assume `ParticleEmitter`/`Beam`/`Trail` render like Workspace VFX; use a time-driven GUI atlas preview (`ImageLabel.ImageRectSize`/`ImageRectOffset`) where appropriate.
