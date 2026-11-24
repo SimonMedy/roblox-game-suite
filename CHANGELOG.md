@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.5 — 2026-11-24
+
+- Added an in-project SideRush lesson: Garage/shop `ViewportFrame` previews must not assume `ParticleEmitter`/`Beam`/`Trail` render like Workspace VFX; use a time-driven GUI atlas preview (`ImageLabel.ImageRectSize`/`ImageRectOffset`) where appropriate.
+- Require separate Garage and gameplay playback checks, plus honest `UNVERIFIED` labeling before real Studio tests. No changes to the standalone asset skill or the experimental Blender baking pipeline.
+
 ## 0.1.4 — 2026-11-24
 
 - Added a compact pipeline selection guide in `roblox-vfx-audio/SKILL.md`: native/3D for reactive or multi-angle effects, baked flipbooks for short camera-facing bursts, hybrid for layered results.

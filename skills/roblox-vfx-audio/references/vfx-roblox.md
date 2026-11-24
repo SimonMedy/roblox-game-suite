@@ -28,6 +28,12 @@ These are **design starting points**, not required values or Roblox performance 
 - Align frames on an exact grid using deterministic tools (Python or Blender orthographic renders); match cell size, pivots and margins, verify playback timing and seamless loop **if looped**.
 - Test against bright/dark backgrounds at the actual camera scale; watch for square borders, jump cuts, banding and overbright clipping.
 
+## Garage / shop previews
+
+- **Do not assume a `ViewportFrame` reproduces Workspace VFX:** `ParticleEmitter`, `Beam` and `Trail` may not render there. Validate on the target client; an in-match PASS does not prove the Garage preview works.
+- For a baked flipbook preview, animate a GUI `ImageLabel` using `ImageRectSize` (one atlas cell) and `ImageRectOffset` (frame coordinates), advancing by elapsed `dt` and the intended one-shot/loop timing. Test the atlas after asset upload; do not use a `ParticleEmitter` as the only Garage preview.
+- 3D items may remain in the `ViewportFrame`; use an appropriate UI or simplified geometry fallback for their missing VFX. Preview and in-match effects are **different render paths** and must both be reviewed. Verify GUI aspect ratios, visibility, timing, cleanup and texture IDs.
+
 ## Real-game performance
 
 - Profile **representative concurrent equipped players**, e.g. 6–8 vehicles if that matches the game's expected player count (example, **not a Roblox limit**).
@@ -40,3 +46,5 @@ Docs:
 - https://create.roblox.com/docs/reference/engine/classes/Beam
 - https://create.roblox.com/docs/reference/engine/classes/Trail
 - https://create.roblox.com/docs/art/modeling/surface-appearance
+- https://create.roblox.com/docs/reference/engine/classes/ViewportFrame
+- https://create.roblox.com/docs/reference/engine/classes/ImageLabel
