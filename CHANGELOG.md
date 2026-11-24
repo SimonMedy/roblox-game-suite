@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 — 2026-11-24
+
+- Added a compact pipeline selection guide in `roblox-vfx-audio/SKILL.md`: native/3D for reactive or multi-angle effects, baked flipbooks for short camera-facing bursts, hybrid for layered results.
+- Noted that side-on 2.5D views favor predictable flipbook framing but do not guarantee mobile FPS; preserved two separate lazy-loaded references, existing QA and all other skills.
+
 ## 0.1.3 — 2026-11-24
 
 - Added lessons reported from a real Blender Voidstorm 4×4 flipbook prototype: controlled Transparent/Emission shader mixing, premultiplied-alpha downsampling and noise-range/erosion checks; kept these as conditional guidance, not universal rules.

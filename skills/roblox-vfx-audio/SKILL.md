@@ -9,6 +9,12 @@ compatibility: Requires Roblox Studio access for in-engine validation. Blender a
 
 **Aim:** recognizable art direction, readable motion and clear sound without unnecessary visual/audio noise. Use only supported Roblox components; no imaginary custom shaders or unverified performance claims.
 
+## Choose the effect pipeline
+
+- **Reactive, continuous or viewed from many angles:** native Roblox `Beam`/`Trail`/`ParticleEmitter`, emissive surfaces and/or Blender-authored 3D meshes; read [native VFX](references/vfx-roblox.md).
+- **Short, complex, camera-facing burst at a known viewing angle:** consider [3D flipbook baking](references/flipbook-baking-pipeline.md) via Blender first; validate clarity, alpha, playback and device cost in Studio. Side-on 2.5D makes this promising, **not** automatically performant.
+- **Mixed effects:** combine a baked burst with native/3D elements for depth and gameplay response. Choose from the actual camera, timing and interactions; never force one technique.
+
 ## Load relevant references
 
 - Particles, Beam/Trail, flipbook sprites, emission, performance: [references/vfx-roblox.md](references/vfx-roblox.md)
