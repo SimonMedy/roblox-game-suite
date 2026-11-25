@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.7 — 2026-11-25
+
+- Documented a **reported SideRush tablet 60 Hz failure**: eight short high-resolution `ParticleEmitter` atlas phases could flicker despite passing Play Solo checks; no longer recommend two-emitter ping-pong as the general solution for many short phases.
+- Added a conditional `BillboardGui`/`ImageLabel` multi-atlas option with elapsed-time frame selection, continuous rotation/pivot, slot/cleanup handling and 30/60 Hz QA. SideRush v103 Play Solo fixes for first-use blur and perspective were reported; **real tablet/PC confirmation remains UNVERIFIED**.
+- Clarified that preload success does not guarantee high-resolution mipmap residency; check actual first-use sharpness and avoid unnecessary HD assets in reduced mode. Distinguished `ParticleEmitter.ZOffset` from `BillboardGui.StudsOffset`, without mandating a universal compensation formula.
+- Added concise `Beam`/`Trail.TextureLength` and rotation-sign checks; retained native/3D alternatives, Garage preview, artistic calibration, existing skills and test suite unchanged. No project-specific constants or multi-agent workflow rules.
+
 ## 0.1.6 — 2026-11-24
 
 - Incorporated SideRush Voidstorm v2 Studio-PC feedback into native VFX QA: calibrate `LightEmission`/Bloom across bright and dark arenas; `0.45` is project evidence, never a universal setting.
@@ -9,7 +16,7 @@
 
 ## 0.1.5 — 2026-11-24
 
-- Added an in-project SideRush lesson: Garage/shop `ViewportFrame` previews must not assume `ParticleEmitter`/`Beam`/`Trail` render like Workspace VFX; use a time-driven GUI atlas preview (`ImageLabel.ImageRectSize`/`ImageRectOffset`) where appropriate.
+- Added an in-project SideRush lesson: Garage/shop `ViewportFrame` previews must not assume `ParticleEmitter`/`Beam`/`Trail` render like Workspace VFX; use a time-driven GUI atlas preview (`ImageLabel.ImageRectSize`/`ImageLabel.ImageRectOffset`) where appropriate.
 - Require separate Garage and gameplay playback checks, plus honest `UNVERIFIED` labeling before real Studio tests. No changes to the standalone asset skill or the experimental Blender baking pipeline.
 
 ## 0.1.4 — 2026-11-24

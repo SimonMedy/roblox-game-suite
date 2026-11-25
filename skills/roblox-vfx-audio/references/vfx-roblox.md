@@ -19,6 +19,7 @@ These are **design starting points**, not required values or Roblox performance 
 - `MeshPart`: rings, arcs, cones, swirling cores or rigid geometry; use local pivots and test shading/materials.
 - `SurfaceAppearance`: fixed emissive masks with scriptable tint/strength; see the Roblox SurfaceAppearance documentation for map security and preconfiguration.
 - Hybrid 3D meshes are **not automatically cheaper** than particles. Geometry, transparency, draw calls, render order and updates all matter.
+- **Texture/rotation checks:** `Beam`/`Trail.TextureMode` and `TextureLength` change repeat/stretch behavior; inspect the documented mode and visual output rather than hardcoding `1` or `12`. `ParticleEmitter.Rotation` uses clockwise-positive degrees per Roblox docs; derive any `atan2` mapping from the actual camera/sprite axes, not a universal sign rule.
 
 ## Sprite and flipbook pipeline
 
@@ -27,6 +28,7 @@ These are **design starting points**, not required values or Roblox performance 
 - Author neutral white/grayscale color for tintable effects driven by `ColorSequence`; keep color artwork only when deliberate.
 - Align frames on an exact grid using deterministic tools (Python or Blender orthographic renders); match cell size, pivots and margins, verify playback timing and seamless loop **if looped**.
 - Test against bright/dark backgrounds at the actual camera scale; watch for square borders, jump cuts, banding and overbright clipping.
+- **Choose playback for the effect duration:** short camera-facing HD sequences with many atlas phases may flicker if repeatedly emitted via `ParticleEmitter`; a world-space `BillboardGui`/`ImageLabel` atlas player is an alternative to validate. Slow particle one-shots and hybrid mesh/particle layers can remain suitable. See [flipbook bake and multi-atlas QA](flipbook-baking-pipeline.md).
 
 ## Garage / shop previews
 
@@ -38,13 +40,15 @@ These are **design starting points**, not required values or Roblox performance 
 
 - **Calibrate in context:** inspect dark/bright arenas and the actual Bloom, `Brightness`, colors and match camera. For a sprite mixing dark cores and bright accents, excessive `LightEmission` can wash out contrast. Tune against visual evidence; SideRush reportedly improved at `0.45` versus `0.72`, **not** a universal target or Roblox limit.
 - **Asset availability:** for Studio MCP/Open Cloud uploads, check required permissions and explicitly approved **narrowly scoped** upload directories. Approval/asset IDs do not always mean immediate CDN availability; handle temporary processing errors with bounded retries, then confirm actual client loading. Never assume a fixed propagation delay or bypass permission checks.
+- **Preload and first use:** `ContentProvider:PreloadAsync` helps fetch assets but does **not** promise highest-quality mipmaps, permanent GPU residency or a hitch-free first display. Verify the actual runtime renderer, screen size and first visible trigger on target hardware; avoid unnecessarily loading all cosmetic/HD assets in reduced mode.
+- **Pooling:** reuse effects where appropriate, but guard overlapping triggers and slot reuse; detach idle render/update connections and reset visibility/rotation/textures on release. A constant Instance count is useful evidence of no added Instances, **not** proof of constant GPU load.
 
 ## Real-game performance
 
 - Profile **representative concurrent equipped players**, e.g. 6–8 vehicles if that matches the game's expected player count (example, **not a Roblox limit**).
 - Evaluate frame times, transparent overdraw, draw calls, particle lifetime/rate, stacked transparencies and texture memory on target clients. Compare against a baseline in Studio and on mobile where possible. Report sampling windows and scene/device settings; an FPS cap can conceal rendering costs, so compare frame-time tails and sustained load too.
 - Define a MOBILE variant with fewer overlapping transparent layers/particles while preserving signature silhouette, color and timing; avoid unnecessary fast flashing.
-- Visual QA: inspect Idle/Move/Boost/Impact, front/back/side, camera occlusion, motion and simultaneous effects. Mark unrun Studio/device tests explicitly.
+- Visual QA: inspect Idle/Move/Boost/Impact, front/back/side, camera occlusion, motion and simultaneous effects. **Test at 30/60 Hz and high refresh:** temporal seams may be invisible in Studio yet flicker on device. Check the first trigger, rapid retriggers, alternate quality paths and actual occupied screen pixels. Mark unrun Studio/device tests explicitly.
 
 Docs:
 - https://create.roblox.com/docs/reference/engine/classes/ParticleEmitter
@@ -53,3 +57,5 @@ Docs:
 - https://create.roblox.com/docs/art/modeling/surface-appearance
 - https://create.roblox.com/docs/reference/engine/classes/ViewportFrame
 - https://create.roblox.com/docs/reference/engine/classes/ImageLabel
+- https://create.roblox.com/docs/reference/engine/classes/BillboardGui
+- https://create.roblox.com/docs/reference/engine/classes/ContentProvider
