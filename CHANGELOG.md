@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.8 — 2026-11-25
+
+- Added off-center camera/parallax QA for world-space `BillboardGui` VFX: camera-relative `StudsOffset` depth is not the same as a camera-to-target ray; test viewport corners and use world-space ray-aligned positioning/`StudsOffsetWorldSpace` only when appropriate. Avoid universal size/offset formulas.
+- Clarified that mobile texture streaming can degrade HD mip levels under ordinary/automatic quality, not just explicit reduced-effects mode. Compare HD/SD paths by actual device class, first-use sharpness, memory and timing rather than a fixed RAM cutoff.
+- Documented isolated temporary visual warm-up rigs as a conditional option to prevent prewarming from taking gameplay slots; near-transparent warmups do not guarantee full-resolution mips or permanent GPU residency.
+- Updated only two lazy-loaded VFX references and changelog, retaining all three `SKILL.md` and avoiding SideRush-specific constants. SideRush v104 mobile results have not been independently verified.
+
 ## 0.1.7 — 2026-11-25
 
 - Documented a **reported SideRush tablet 60 Hz failure**: eight short high-resolution `ParticleEmitter` atlas phases could flicker despite passing Play Solo checks; no longer recommend two-emitter ping-pong as the general solution for many short phases.
