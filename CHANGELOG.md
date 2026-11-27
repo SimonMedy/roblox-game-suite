@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.9 — 2026-11-28
+
+- Added a lazy-loaded Studio QA reference for `Trail`/`Beam` UV diagnosis using asymmetric U/V textures, texture mode/repeat checks, high-speed exhaust continuity, and ball/entity hybrid auras.
+- Documented distance-based substeps as a conditional cure for disconnected particles at speed; no hardcoded sample counts, VFX color/lighting constants or claims of universal rotation/UV bugs.
+- Expanded audio guidance with flexible start/loop/release cues, crossfade/loop checks, frequency and loudness QA, voice limiting/ducking for repeated triggers, and first-use playback tests. `PreloadAsync` does not imply permanent GPU/audio residency; avoid the false claim that strings are universally unsupported.
+- Kept the existing multi-atlas, `BillboardGui`, mobile mip/first-use and Garage knowledge unchanged. The locally installed skill version reported by Gemini may be stale even though GitHub was current at v0.1.8; users must update local skill installations separately.
+- Updated only `roblox-vfx-audio` lazy references and changelog; no `SKILL.md`, new UI skill, multi-agent guidance, build/config changes or SideRush game code.
+
 ## 0.1.8 — 2026-11-25
 
 - Added off-center camera/parallax QA for world-space `BillboardGui` VFX: camera-relative `StudsOffset` depth is not the same as a camera-to-target ray; test viewport corners and use world-space ray-aligned positioning/`StudsOffsetWorldSpace` only when appropriate. Avoid universal size/offset formulas.

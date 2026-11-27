@@ -19,7 +19,7 @@ These are **design starting points**, not required values or Roblox performance 
 - `MeshPart`: rings, arcs, cones, swirling cores or rigid geometry; use local pivots and test shading/materials.
 - `SurfaceAppearance`: fixed emissive masks with scriptable tint/strength; see the Roblox SurfaceAppearance documentation for map security and preconfiguration.
 - Hybrid 3D meshes are **not automatically cheaper** than particles. Geometry, transparency, draw calls, render order and updates all matter.
-- **Texture/rotation checks:** `Beam`/`Trail.TextureMode` and `TextureLength` change repeat/stretch behavior; inspect the documented mode and visual output rather than hardcoding `1` or `12`. `ParticleEmitter.Rotation` uses clockwise-positive degrees per Roblox docs; derive any `atan2` mapping from the actual camera/sprite axes, not a universal sign rule.
+- **Texture/rotation checks:** `Beam`/`Trail.TextureMode` and `TextureLength` change repeat/stretch behavior; inspect the documented mode and visual output rather than hardcoding `1` or `12`. `ParticleEmitter.Rotation` uses clockwise-positive degrees per Roblox docs; derive any `atan2` mapping from the actual camera/sprite axes, not a universal sign rule. For actual UV proof, boost continuity and hybrid auras, load [trail/boost/aura Studio QA](trails-boosts-and-auras.md).
 
 ## Sprite and flipbook pipeline
 
