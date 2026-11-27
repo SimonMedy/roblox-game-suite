@@ -2,11 +2,13 @@
 
 An asset/code agent can design cues, generate or process simple synthetic layers (e.g. Python DSP), edit loops and specify Roblox audio integration; this does **not** replace skilled music composition, sound design or in-game mixing. Use licensed/original audio only; verify upload permissions.
 
-- **Three-phase events:** clear `Attack` transient → click-free `Loop` (zero crossing/crossfade) → smooth `Release`. For boosts, test activation, sustained use, interruption and stop in Studio.
-- **Variation:** bounded randomized pitch/volume and multiple samples reduce repetition; preserve cue recognition and avoid volume spikes.
-- **Hierarchy:** protect essential competition cues (ball, impacts, boost status, UI) above cosmetic flourishes. Higher rarities may have memorable sonic signatures, not simply louder audio.
+- **Event structure:** use a recognizable start transient followed by a click-free sustain/loop and optional release where the action needs it; some cues need only start + loop. Check actual OGG/WAV start silence, loop boundaries and encoder behavior in Studio. Use a zero crossing, short overlap or equal-power crossfade **when it improves the specific seam**, not as a mandatory fixed recipe. Stop/interruption must not leave a loop running.
+- **Variation:** bounded randomized pitch/volume and multiple samples reduce repetition; preserve cue recognition and avoid volume spikes. `PlaybackSpeed` may track motion/energy when appropriate, but clamp extremes and assess pitch/time changes.
+- **Repeated triggers and mixing:** audition rapid taps, overlapping players and sustained activation. Use a bounded active-voice policy (reuse/steal/fade/cooldown as appropriate), avoid clipping and audible pumping, and protect important gameplay cues over cosmetics. Ducking thresholds and voice counts are project-specific; do not hardcode them.
+- **Frequency and loudness QA:** inspect peak, perceived loudness/RMS and spectrum (FFT) to find harsh resonances or low-frequency drone; adjust EQ/compression deliberately. `EqualizerSoundEffect` is an available Roblox option, not a substitute for listening on mobile speakers/headphones.
+- **Preloading:** use `ContentProvider:PreloadAsync` on relevant real `Sound` instances and verify readiness/first audible playback in Studio; the API can also accept supported asset IDs and other instances, so do **not** assert that raw `rbxassetid://` strings are universally invalid. Preloading does not guarantee permanent memory residency or that playback is glitch-free.
 - **Spatial mix:** choose 2D UI or positional 3D playback intentionally; check attenuation, overlapping players, clipping, accessibility, mobile speakers and consistent loudness.
 - **Music:** use only if it benefits the scene, keep gameplay cues intelligible and respect licensing. Never claim to have composed or tested a track without a real artifact.
-- **Handoff:** provide source/licensing, formats, cue naming, trigger/state map, loop points, gain/pitch ranges and what was actually auditioned in Roblox.
+- **Handoff:** provide source/licensing, formats, cue naming, trigger/state map, loop points, gain/pitch ranges and what was actually auditioned in Roblox. Keep optional alternate takes when useful; no fixed number of generations is required.
 
-Docs: https://create.roblox.com/docs/sound and https://create.roblox.com/docs/reference/engine/classes/Sound
+Docs: https://create.roblox.com/docs/sound and https://create.roblox.com/docs/reference/engine/classes/Sound and https://create.roblox.com/docs/reference/engine/classes/ContentProvider
